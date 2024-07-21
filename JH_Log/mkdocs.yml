@@ -1,11 +1,58 @@
 # 페이지 타이틀 및 좌측 상단 페이지 이름 표시
 site_name: JH_Log
 
+# 테마 및 플로그인 설정
 theme:
   name: "material"
+  logo: images/logo.png
+  favicon: images/favicon.ico
+  extra:
+  analytics:
+    provider: google
+    property: G-2H4K4DVGVJ
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking # 목차에 강조 표시된 활성 앵커로 자동 업데이트
+    - navigation.tabs
+    - navigation.tabs.sticky # 탭 고정
+    - navigation.sections
+    - navigation.path # 브레드 크럼 설정
+    - navigation.top # 맨위로 돌아가기 버튼
+
+    - search.suggest
+    - search.highlight # 검색 하이라이트 처리
+    - search.share # 검색 공유
+
+  # # URL 미리보기 설정
+  # - material.extensions.preview:
+  #     targets:
+  #       include:
+  #         - changelog/index.md
+  #         - customization.md
+  #         - insiders/changelog/*
+  #         - setup/extensions/*
 plugins:
   - search:
-      lang: "ko"
+      lang: "ko" # 한국어 검색 지원
+  - blog
 
 # 상단 네비게이션 바
 nav:

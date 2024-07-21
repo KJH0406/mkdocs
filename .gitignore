@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/venv,macos,visualstudiocode,python,dotenv,direnv
 # Edit at https://www.toptal.com/developers/gitignore?templates=venv,macos,visualstudiocode,python,dotenv,direnv
 
+.site
+site
+
 ### direnv ###
 .direnv
 .envrc
