@@ -1,8 +1,6 @@
 # 페이지 타이틀 및 좌측 상단 페이지 이름 표시
 site_name: Kim Jangho
 
-# G-2H4K4DVGVJ
-
 # 테마 및 플로그인 설정
 theme:
   name: "material"
@@ -42,6 +40,8 @@ theme:
     - search.highlight # 검색 하이라이트 처리
     - search.share # 검색 공유
 
+    - content.code.copy
+
   # # URL 미리보기 설정
   # - material.extensions.preview:
   #     targets:
@@ -51,6 +51,9 @@ theme:
   #         - insiders/changelog/*
   #         - setup/extensions/*
 extra:
+  analytics:
+    provider: google
+    property: G-2H4K4DVGVJ
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/KJH0406
@@ -142,16 +145,15 @@ plugins:
       draft: true # 초안 미리보기
 
   # 최신 피드 관리
-  - rss:
-  match_path: blog/posts/.* 
-  date_from_meta:
-    as_creation: date
-  categories:
-    - categories
-    - tags 
-  comments_path: "#__comments"
+  # - rss:
+  # match_path: blog/posts/.*
+  # date_from_meta:
+  #   as_creation: date
+  # categories:
+  #   - categories
+  #   - tags
+  # comments_path: "#__comments"
 
-  
 # 상단 네비게이션 바
 nav:
   - Home: home.md
