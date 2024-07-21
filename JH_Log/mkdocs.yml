@@ -1,29 +1,28 @@
 # 페이지 타이틀 및 좌측 상단 페이지 이름 표시
-site_name: JH_Log
+site_name: Kim Jangho
+
+# G-2H4K4DVGVJ
 
 # 테마 및 플로그인 설정
 theme:
   name: "material"
+  palette:
+    # primary: indigo
+    # 다크 모드
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # 라이트 모드
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  custom_dir: overrides
   logo: images/logo.png
   favicon: images/favicon.ico
-  extra:
-  analytics:
-    provider: google
-    property: G-2H4K4DVGVJ
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
   icon:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
@@ -36,6 +35,8 @@ theme:
     - navigation.sections
     - navigation.path # 브레드 크럼 설정
     - navigation.top # 맨위로 돌아가기 버튼
+    - navigation.indexes
+    - navigation.footer
 
     - search.suggest
     - search.highlight # 검색 하이라이트 처리
@@ -49,17 +50,108 @@ theme:
   #         - customization.md
   #         - insiders/changelog/*
   #         - setup/extensions/*
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/KJH0406
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/kimjangho
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/_djangho
+  generator: false
+copyright: Copyright &copy; 2024 Jang Ho
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
 plugins:
   - search:
       lang: "ko" # 한국어 검색 지원
   - blog:
       archive: false # 사용법을 익히지 못해서, 일단 비활성화 처리
+
+      # 블로그 설정
       blog_dir: blog # blog 글은 blog 주소 포함
-      post_dir: "{blog}/articles" # 각 아티클 주소 생성
       blog_toc: true
+
+      # 게시물 설정
+      # post_dir: "{blog}/posts" # 만약 게시글을 다른 폴더로 옮기려면 이 설정 활성화하여 수정
       post_date_format: medium # 날짜 형식
       post_url_format: "{slug}" # 슬러그 통해서 특정 페이지를 식별(SEO)
+      # post_url_format: "{categories}/{slug}" # 두 개 이상의 카테고리가 주어지면, /슬로깅한 후에 이를 결합
+      post_url_max_categories: 2
 
+      # 카테고리 설정
+      categories_name: "Categories"
+      categories_toc: true
+
+      # 페이지네이션 설정
+      pagination_per_page: 2
+      pagination_format: "~2~" # 스타일 1
+      # pagination_format: "$link_first $link_previous ~2~ $link_next $link_last" # 스타일 2
+      pagination_if_single_page: false # 단일 페이지로만 구성된 경우 페이지 매김을 자동으로 비활성화
+
+      # 배포 설정
+      draft: true # 초안 미리보기
+
+  # 최신 피드 관리
+  - rss:
+  match_path: blog/posts/.* 
+  date_from_meta:
+    as_creation: date
+  categories:
+    - categories
+    - tags 
+  comments_path: "#__comments"
+
+  
 # 상단 네비게이션 바
 nav:
   - Home: home.md
