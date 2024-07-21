@@ -52,9 +52,17 @@ theme:
 plugins:
   - search:
       lang: "ko" # 한국어 검색 지원
-  - blog
+  - blog:
+      archive: false # 사용법을 익히지 못해서, 일단 비활성화 처리
+      blog_dir: blog # blog 글은 blog 주소 포함
+      post_dir: "{blog}/articles" # 각 아티클 주소 생성
+      blog_toc: true
+      post_date_format: medium # 날짜 형식
+      post_url_format: "{slug}" # 슬러그 통해서 특정 페이지를 식별(SEO)
 
 # 상단 네비게이션 바
 nav:
-  - Home: index.md
+  - Home: home.md
   - About: about.md
+  - Blog:
+      - blog/index.md
