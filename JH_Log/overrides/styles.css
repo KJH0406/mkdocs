@@ -1,0 +1,24 @@
+.recent-posts,
+.category-posts {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-posts li,
+.category-posts li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.recent-posts a,
+.category-posts a {
+  font-size: 1.2rem;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.recent-posts a:hover,
+.category-posts a:hover {
+  text-decoration: underline;
+}
