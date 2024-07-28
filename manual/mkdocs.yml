@@ -1,1 +1,126 @@
-site_name: My Docs
+# 페이지 타이틀 및 좌측 상단 페이지 이름 표시
+site_name: Kim Jangho
+
+# 테마 및 플로그인 설정
+theme:
+  name: "material"
+  palette:
+    # primary: indigo
+    # 다크 모드
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # 라이트 모드
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  custom_dir: overrides
+  # logo: images/logo.png
+  # favicon: images/favicon.ico
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking # 목차에 강조 표시된 활성 앵커로 자동 업데이트
+    - navigation.tabs
+    - navigation.tabs.sticky # 탭 고정
+    - navigation.sections
+    - navigation.path # 브레드 크럼 설정
+    - navigation.top # 맨위로 돌아가기 버튼
+    - navigation.indexes
+    - navigation.footer
+
+    - search.suggest
+    - search.highlight # 검색 하이라이트 처리
+    - search.share # 검색 공유
+
+    - content.code.copy
+
+  # # URL 미리보기 설정
+  # - material.extensions.preview:
+  #     targets:
+  #       include:
+  #         - changelog/index.md
+  #         - customization.md
+  #         - insiders/changelog/*
+  #         - setup/extensions/*
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/KJH0406
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/kimjangho
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/_djangho
+  generator: false
+copyright: Copyright &copy; 2024 Jang Ho
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      lang: "ko" # 한국어 검색 지원
+
+# 상단 네비게이션 바
+nav:
+  - Intro: index.md
+  - Git:
+      - git_branch_management.md
+      - git_file_management.md
+      - git_install.md
+      - git_remote_collaboration.md
+      - git_repo_management.md
