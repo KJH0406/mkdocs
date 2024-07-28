@@ -154,3 +154,28 @@
     transform: rotate(360deg);
   }
 }
+
+.service-messages {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 80%;
+  /* max-width: 80%; */
+}
+
+.service-button {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #b5d3fc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 0.7rem;
+}
+
+.service-button:hover {
+  background-color: #0056b3;
+}
