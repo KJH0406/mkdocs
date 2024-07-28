@@ -34,7 +34,8 @@ app.add_middleware(
 DB_INDEX = "MANUAL_DB"
 embeddings = OpenAIEmbeddings()
 vectorstore = FAISS.load_local(DB_INDEX, embeddings, allow_dangerous_deserialization=True)
-retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+# retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 4})
 
 # LLM 모델 설정
 llm = ChatOpenAI(
@@ -51,7 +52,6 @@ prompt = ChatPromptTemplate.from_messages([
     If you don't know the answer just say you don't know. DON'T make anything up. (This is very important)
     Provide all responses in Korean.
 
-    If the context includes a source link, provide this link at the end of the answer using the format [link_text](link).
     If there are prerequisites in the context, mention them in the response, using the format [title](link).
 
     Based on the complexity of the request and the specificity needed, choose ONE of the following three response types:
@@ -63,6 +63,7 @@ prompt = ChatPromptTemplate.from_messages([
     3. Request for Specificity: For broad questions or those with multiple possible answers, where the context doesn't provide enough details. Ask the user for more specific information.
 
     Choose the most appropriate response type based on the question and available context. Do not include explanations about the other response types in your answer.
+    And If the context includes a source link, provide this link at the end of the answer using the format [link_text](link).
 
     ---
     
@@ -121,3 +122,5 @@ async def chat(request: Request):
     query = data.get("message", "")
     response_message = run_chain_with_memory(query)
     return JSONResponse(content={"response": response_message.content})
+
+

@@ -43,6 +43,9 @@ class Chatbot {
   async sendMessage(message = this.userInput.value.trim()) {
     if (message === "") return
 
+    // 입력과 버튼 비활성화
+    this.setInputState(false)
+
     this.addMessage("user", message)
     this.userInput.value = ""
 
@@ -65,6 +68,23 @@ class Chatbot {
         loadingIndicator,
         "오류가 발생했습니다. 다시 시도해주세요."
       )
+    } finally {
+      // 입력과 버튼 다시 활성화
+      this.setInputState(true)
+    }
+  }
+
+  setInputState(enabled) {
+    if (enabled) {
+      this.userInput.disabled = false
+      this.sendButton.disabled = false
+      this.userInput.classList.remove("input-disabled")
+      this.sendButton.classList.remove("button-disabled")
+    } else {
+      this.userInput.disabled = true
+      this.sendButton.disabled = true
+      this.userInput.classList.add("input-disabled")
+      this.sendButton.classList.add("button-disabled")
     }
   }
 
@@ -82,7 +102,8 @@ class Chatbot {
 
   updateMessage(element, newMessage) {
     element.classList.remove("loading-message")
-    element.innerHTML = newMessage
+    // element.innerHTML = newMessage
+    element.innerHTML = marked.parse(newMessage)
   }
 }
 
