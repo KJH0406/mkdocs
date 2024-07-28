@@ -21,7 +21,7 @@
   position: fixed;
   bottom: 90px;
   right: 20px;
-  width: 350px;
+  width: 400px;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -161,7 +161,7 @@
 }
 
 .service-button {
-  margin: 5px 0;
+  margin: 4px 0;
   padding: 8px 15px;
   background-color: #b5d3fc;
   color: white;

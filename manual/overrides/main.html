@@ -1,7 +1,12 @@
 {% extends "base.html" %} {% block extrahead %} {{ super() }}
 <link rel="stylesheet" href="{{ 'chatbot.css'|url }}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
 {% endblock %} {% block content %} {{ super() }} {% include "chatbot.html" %} {%
 endblock %} {% block scripts %} {{ super() }}
 <script src="{{ 'chatbot.js'|url }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 {% endblock %}
