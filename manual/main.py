@@ -116,7 +116,7 @@ def run_chain_with_memory(query):
 
 
 
-@app.post("/chat")
+@app.post("/api/chat")
 async def chat(request: Request):
     data = await request.json()
     query = data.get("message", "")
