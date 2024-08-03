@@ -1,5 +1,3 @@
-const api = "https://3.34.40.201/api"
-
 class Chatbot {
   constructor() {
     this.toggleBtn = document.getElementById("chatbot-toggle")
@@ -52,7 +50,7 @@ class Chatbot {
     const loadingIndicator = this.addLoadingIndicator()
 
     try {
-      const response = await fetch(`${api}/chat`, {
+      const response = await fetch("https://3.34.40.201/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
