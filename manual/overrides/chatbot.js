@@ -1,4 +1,4 @@
-const api = "https://3.34.40.201"
+const api = "https://3.34.40.201/api"
 
 class Chatbot {
   constructor() {
