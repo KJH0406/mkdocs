@@ -50,7 +50,7 @@ class Chatbot {
     const loadingIndicator = this.addLoadingIndicator()
 
     try {
-      const response = await fetch("https://3.34.40.201/api/chat", {
+      const response = await fetch("http://54.180.249.4/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
